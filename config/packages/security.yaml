@@ -10,6 +10,7 @@ security:
             our_db_provider:
                 entity:
                     class: App\Entity\User
+                    property: email
                     # if you're using multiple entity managers
                     # manager_name: customer
 
