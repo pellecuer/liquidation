@@ -36,7 +36,11 @@ class User implements UserInterface, \Serializable
      */
     private $email;
 
-
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     */
+    private $username;
 
     /**
      * @Assert\NotBlank()
@@ -79,7 +83,7 @@ class User implements UserInterface, \Serializable
 
     public function getUsername()
     {
-        return $this->email;
+        return $this->username;
     }
 
     public function setUsername($username)
