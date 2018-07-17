@@ -1,13 +1,28 @@
 security:
+
+    # config/packages/security.yaml
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+            our_db_provider:
+                entity:
+                    class: App\Entity\User
+                    # if you're using multiple entity managers
+                    # manager_name: customer
+
+
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
+            http_basic: ~
+            provider: our_db_provider
 
             # activate different ways to authenticate
 
@@ -20,5 +35,7 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_USER }
+
         # - { path: ^/profile, roles: ROLE_USER }
