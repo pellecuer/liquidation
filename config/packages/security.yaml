@@ -10,6 +10,7 @@ security:
             our_db_provider:
                 entity:
                     class: App\Entity\User
+                    property: email
                     # if you're using multiple entity managers
                     # manager_name: customer
 
@@ -21,8 +22,11 @@ security:
             security: false
         main:
             anonymous: ~
-            http_basic: ~
             provider: our_db_provider
+            form_login:
+                login_path: login
+                check_path: login
+
 
             # activate different ways to authenticate
 
@@ -37,5 +41,6 @@ security:
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
         # - { path: ^/profile, roles: ROLE_USER }

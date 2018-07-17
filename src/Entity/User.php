@@ -82,10 +82,6 @@ class User implements UserInterface, \Serializable
         return $this->email;
     }
 
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
 
     public function getPlainPassword()
     {
@@ -129,7 +125,7 @@ class User implements UserInterface, \Serializable
     {
         return serialize(array(
             $this->id,
-            $this->username,
+            $this->email,
             $this->password,
             // see section on salt below
             // $this->salt,
@@ -141,7 +137,7 @@ class User implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->username,
+            $this->email,
             $this->password,
             // see section on salt below
             // $this->salt
