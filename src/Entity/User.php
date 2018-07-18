@@ -217,6 +217,29 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", nullable=true, unique=true)
+     */
+    private $token;
+
+    /**
+     * @return string
+     */
+    public function getToken(): string
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param string $token
+     */
+    public function setToken(string $token): void
+    {
+        $this->token = $token;
+    }
+
+    /**
      * @ORM\Column(type="array")
      */
     private $roles;

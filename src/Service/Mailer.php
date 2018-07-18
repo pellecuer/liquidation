@@ -50,11 +50,22 @@ class Mailer
         $from = 'support@liquidationavanttravaux.com';
         $subject = 'Votre compte utilisateur a été crée. Vous pouvez désormais vous connecter avec vos identifiants';
         $body = $this->templating->render('emails/registration.html.twig', array(
-            'nickname' => $user->getNickName()
+            'user' => $user
         ));
 
+        $this->sendmail($subject, $to, $from, $body);
+    }
+
+    public function sendLostPasswordMail($userPasswordLost, $url)
+    {
+        $subject = 'Mot de passe oublié';
+        $to = $userPasswordLost->getEmail();
+        $from = 'support@liquidationavanttravaux.com';
+        $body = $this->templating->render('emails/lostPasswordMail.html.twig', array(
+            'user' => $userPasswordLost,
+            'url' => $url
+        ));
 
         $this->sendmail($subject, $to, $from, $body);
-
     }
 }
