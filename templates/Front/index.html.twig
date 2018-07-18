@@ -3,8 +3,13 @@
 
 {% block title %}Accueil{% endblock %}
 
-{% block body %}
+{% block content %}
     <h1>Bienvenue sur LiquidationAvantTravaux.com</h1>
+
+    <ul>
+        <li><a href="{{ path('user_registration') }}">Créer un compte</li>
+        <li><a href="{{ path('lostPassword') }}">Mot de passe oublié</a></li>
+    </ul>
 
 {% endblock %}
 
