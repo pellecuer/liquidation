@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use App\Service\Mailer;
 
 
 class RegistrationController extends Controller
@@ -21,7 +22,7 @@ class RegistrationController extends Controller
     /**
      * @Route("/register", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, Mailer $mailer)
     {
         // 1) build the form
         $user = new User();
@@ -41,7 +42,10 @@ class RegistrationController extends Controller
             $entityManager->flush();
 
             // ... do any other work - like sending them an email, etc
+            $mailer->sendRegistrationMail($user);
+
             // maybe set a "flash" success message for the user
+            $this->addFlash('success', 'Inscription enregistrée avec succès !');
 
             return $this->redirectToRoute('home');
         }
