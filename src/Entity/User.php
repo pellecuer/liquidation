@@ -73,7 +73,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param string $firstName
      */
-    public function setFirstName(string $firstName): void
+    public function setFirstName(string $firstName)
     {
         $this->firstName = $firstName;
     }
@@ -88,7 +88,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getLastname(): string
+    public function getLastname()
     {
         return $this->lastname;
     }
@@ -96,7 +96,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param string $lastname
      */
-    public function setLastname(string $lastname): void
+    public function setLastname(string $lastname)
     {
         $this->lastname = $lastname;
     }
@@ -119,7 +119,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param string $nickName
      */
-    public function setNickName(string $nickName): void
+    public function setNickName(string $nickName)
     {
         $this->nickName = $nickName;
     }
@@ -134,7 +134,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return int
      */
-    public function getPhoneNumber(): int
+    public function getPhoneNumber()
     {
         return $this->phoneNumber;
     }
@@ -142,7 +142,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param int $phoneNumber
      */
-    public function setPhoneNumber(int $phoneNumber): void
+    public function setPhoneNumber(int $phoneNumber)
     {
         $this->phoneNumber = $phoneNumber;
     }
@@ -157,7 +157,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getStreet(): string
+    public function getStreet()
     {
         return $this->street;
     }
@@ -165,7 +165,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param string $street
      */
-    public function setStreet(string $street): void
+    public function setStreet(string $street)
     {
         $this->street = $street;
     }
@@ -180,7 +180,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return int
      */
-    public function getPostCode(): int
+    public function getPostCode()
     {
         return $this->postCode;
     }
@@ -188,7 +188,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param int $postCode
      */
-    public function setPostCode(int $postCode): void
+    public function setPostCode(int $postCode)
     {
         $this->postCode = $postCode;
     }
@@ -203,7 +203,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->city;
     }
@@ -211,7 +211,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param string $city
      */
-    public function setCity(string $city): void
+    public function setCity(string $city)
     {
         $this->city = $city;
     }
@@ -226,7 +226,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return string
      */
-    public function getToken(): string
+    public function getToken()
     {
         return $this->token;
     }
@@ -234,7 +234,7 @@ class User implements UserInterface, \Serializable
     /**
      * @param string $token
      */
-    public function setToken(string $token): void
+    public function setToken(string $token)
     {
         $this->token = $token;
     }
