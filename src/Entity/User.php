@@ -62,6 +62,60 @@ class User implements UserInterface, \Serializable
      */
     private $firstName;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lastName", type="string", length=45, nullable=true)
+     */
+    private $lastname;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nickName", type="string", length=45, nullable=true)
+     */
+    private $nickName;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="phoneNumber", type="integer", length=45, nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=255, nullable=true)
+     */
+    private $street;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="postCode", type="integer", length=45, nullable=true)
+     */
+    private $postCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     */
+    private $city;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="token", type="string", nullable=true, unique=true)
+     */
+    private $token;
+
+
+
     /**
      * @return string
      */
@@ -78,12 +132,7 @@ class User implements UserInterface, \Serializable
         $this->firstName = $firstName;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lastName", type="string", length=45, nullable=true)
-     */
-    private $lastname;
+
 
     /**
      * @return string
@@ -101,12 +150,7 @@ class User implements UserInterface, \Serializable
         $this->lastname = $lastname;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nickName", type="string", length=45, nullable=true)
-     */
-    private $nickName;
+
 
     /**
      * @return string
@@ -124,12 +168,7 @@ class User implements UserInterface, \Serializable
         $this->nickName = $nickName;
     }
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="phoneNumber", type="integer", length=45, nullable=true)
-     */
-    private $phoneNumber;
+
 
     /**
      * @return int
@@ -147,12 +186,7 @@ class User implements UserInterface, \Serializable
         $this->phoneNumber = $phoneNumber;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="street", type="string", length=255, nullable=true)
-     */
-    private $street;
+
 
     /**
      * @return string
@@ -170,12 +204,7 @@ class User implements UserInterface, \Serializable
         $this->street = $street;
     }
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="postCode", type="integer", length=45, nullable=true)
-     */
-    private $postCode;
+
 
     /**
      * @return int
@@ -193,12 +222,7 @@ class User implements UserInterface, \Serializable
         $this->postCode = $postCode;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
-     */
-    private $city;
+
 
     /**
      * @return string
@@ -216,12 +240,7 @@ class User implements UserInterface, \Serializable
         $this->city = $city;
     }
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="token", type="string", nullable=true, unique=true)
-     */
-    private $token;
+
 
     /**
      * @return string
