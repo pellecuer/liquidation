@@ -1,0 +1,28 @@
+/* Variable */
+
+$brand-primary: darken(#ffffff, 20%); /* Couleur des écritures */
+
+/* Élements fixe */
+
+.pm-height-5vh{height: 5vh;}
+
+h1{
+
+  color: $brand-primary;
+
+}
+
+html{min-height: 100%;}
+
+body{
+
+  background-color: #d6d6d6;
+
+  min-height: 100vh;
+
+}
+
+/*****************************************/
+
+.main{min-height: 95vh}
+
