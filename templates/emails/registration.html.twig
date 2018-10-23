@@ -1,4 +1,8 @@
-{# templates/emails/registration.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Enregistrement{% endblock %}
+
+{% block content %}
 <h3>Nouveau membre LiquidationAvantTravaux</h3>
 
 
@@ -8,6 +12,4 @@ Bonjour {{ user.nickName }}! L'enregistrement de votre compte est un succès.
 Pour vous connecter, rendez-vous à cette adresse : <a href="{{ url('login') }}">Login</a>.
 
 Merci!
-
-{# Makes an absolute URL to the /images/logo.png file #}
-{#<img src="{{ absolute_url(asset('images/logo.png')) }}">#}
+{% endblock %}
