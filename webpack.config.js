@@ -12,7 +12,7 @@ Encore
 
     // the public path you will use in Symfony's asset() function - e.g. asset('build/some_file.js')
 
-    .setManifestKeyPrefix('build/')
+    //.setManifestKeyPrefix('build/')
 
     .cleanupOutputBeforeBuild()
 
@@ -23,8 +23,6 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     .addEntry('app', './assets/js/app.js')
-
-    .addEntry('style', './assets/scss/main.scss')
 
 
     .cleanupOutputBeforeBuild()
