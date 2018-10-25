@@ -1,5 +1,9 @@
 /* Variable */
 
+
+/*****palette rétrochic*****/
+/*****https://www.color-hex.com/color-palette/67065*****/
+
 $brand-primary: darken(#a8ff33, 20%); /* Couleur des écritures */
 
 /* Élements fixe */
@@ -12,11 +16,19 @@ h1{
 
 }
 
+.update {
+  color:#00A600;
+}
+
+
+
+.trash {
+  color:#ce0404;
+}
+
 html{min-height: 100%;}
 
 body{
-
-  background-color: #ff5733;
 
   min-height: 100vh;
 

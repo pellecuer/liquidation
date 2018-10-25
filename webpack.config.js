@@ -23,6 +23,7 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     .addEntry('app', './assets/js/app.js')
+    .addEntry('datatable', './assets/js/datatable.js')
 
 
     .cleanupOutputBeforeBuild()

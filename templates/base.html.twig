@@ -6,10 +6,14 @@
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
             <link rel="stylesheet" href="{{ asset('build/app.css') }}">
-        {% block stylesheets %}
-        {% endblock %}
+        {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <header class="text-center py-3">
+        <h1 class="bg-white-semi_transparent"><strong class="text-dark"> {% block HeaderTitlePart1 %} {% endblock %}</strong><em>{% block HeaderTitlePart2 %}{% endblock %}</em></h1>
+        <p>Dernière modification le 20/04/2019</p>
+    </header>
+    {% block header %}{% endblock %}
         <div class="loader"></div>
             {% for label, messages in app.flashes %}
                 {% for message in messages %}
@@ -28,7 +32,6 @@
         </script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
         <script src="{{ asset('build/app.js') }}"></script>
-        {% block javascripts %}
-        {% endblock %}
+        {% block javascripts %}{% endblock %}
     </body>
 </html>
