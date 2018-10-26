@@ -26,6 +26,7 @@ Encore
     .addEntry('ajax', './assets/js/ajax.js')
     .addEntry('datatable', './assets/js/datatable.js')
     .addEntry('addRow', './assets/js/addRow.js')
+    .addEntry('dataTableFrench', './assets/js/dataTableFrench.js')
 
 
     .cleanupOutputBeforeBuild()

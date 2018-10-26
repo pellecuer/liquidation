@@ -11,6 +11,9 @@ $(document).ready(function() {
             'J',
             'H',
             'H',
+            'H',
+            'H',
+            'H',
             checkbox
         ] ).draw( false );
 
@@ -25,7 +28,7 @@ $(document).ready(function() {
 $(document).ready(function() {
     var table = $('#example').DataTable();
 
-    $('#example tbody').on( 'click', '#icon-delete', function () {
+    $('#example tbody').on( 'click', '.trash', function () {
         table
             .row( $(this).parents('tr') )
             .remove()
