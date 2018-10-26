@@ -21,7 +21,17 @@
         </div>
         <div class="row">
             <div class="col-md-8 offset-2">
-                <table id="myTable" class=" table table-striped table-hover table-sm">
+                 <span class="fa-stack fa-1x my-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <a href="{{ path('home') }}"><i class="fas fa-plus fa-stack-1x fa-inverse"></i></a>
+                </span>
+                <span class="fa-stack fa-1x my-2">
+                    <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                    <a href="{{ path('home') }}"><i class="fas fa-print fa-stack-1x fa-inverse"></i></a>
+                </span>
+
+
+                <table id="myTable" class="table table-striped table-hover table-sm shadow-lg">
                     <caption>Liste des produits</caption>
                     <thead class="thead-dark">
                     <tr>
@@ -60,57 +70,6 @@
     </div>
 {% endblock %}
  {% block javascripts %}
-     <script>
-         //Event handlers
-         $(".editFor" ).on( "mouseenter", function(){
-             $( this).css( "background-color", "#C6E2FF");
-             //$('html,body').css('cursor','crosshair');
-             $(this).attr('contenteditable', 'true');
-         });
-         $(".editFor" ).on( "mouseleave", function(){
-             $( this).css( "background-color", "#F0F8FF");
-             //$('html,body').css('cursor','crosshair');
-             $(this).attr('contenteditable', 'false');
-         });
-         $(".editFor" ).on( "keypress", function(){
-             //$('html,body').css('cursor','crosshair');
-             $(this).text('');
-         });
-
-         //Check
-         $('.editFor').on( "keyup", function(){
-             var personnage = $(this).html();
-             $.ajax({
-                 url:'/ajax_request',
-                 type: "POST",
-                 dataType: "json",
-                 data: {
-                     "personnage": personnage
-                 },
-                 async: true,
-                 success: function (data)
-                 {
-                     console.log(data);
-                     $( '#titre' ).text(data.titre);
-                     $( '#producteur' ).text(data.producteur);
-                 }
-             });
-         });
-
-         //delete object in DB
-         $('.trash').on( "click", function(){
-             //$(this).closest('tr').remove();
-             var personnage = $(this).closest('tr').find("td:nth-child(1)").html();
-
-             $( '#var' ).text(personnage);
-         });
-
-         //update object in DB
-         $('.update').on( "click", function(){
-             //$(this).closest('tr').remove();
-             var personnage = $(this).closest('tr').find("td:nth-child(1)").html();
-
-             $( '#var' ).text(personnage);
-         });
-     </script>
+     <script src="{{ asset('build/ajax.js') }}"></script>
+     <script src="{{ asset('build/datatable.js') }}"></script>
  {% endblock %}

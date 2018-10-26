@@ -30,7 +30,7 @@ class FrontController extends AbstractController
      */
     public function homeAction()
     {
-        return $this->render ('Front/index.html.twig');
+        return $this->render('Front/index.html.twig');
     }
 
 
@@ -39,7 +39,7 @@ class FrontController extends AbstractController
      */
     public function lostPasswordAction(Request $request, Mailer $mailer)
     {
-        $form=$this->createForm(LostPasswordType::class);
+        $form = $this->createForm(LostPasswordType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -69,9 +69,9 @@ class FrontController extends AbstractController
                 return $this->redirectToRoute('lostPassword');
             }
         }
-            return $this->render('Front/lostPassword.html.twig', array(
-                'form'=>$form->createView()
-            ));
+        return $this->render('Front/lostPassword.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
 
 
@@ -105,9 +105,17 @@ class FrontController extends AbstractController
             }
         }
         return $this->render('Front/resetPassword.html.twig', array(
-            'form'=>$form->createView()
+            'form' => $form->createView()
         ));
     }
 
-
+    /**
+     * @Route("/datatable", name="datatable")
+     * @Method({"GET", "POST"})
+     */
+    public function dataTableAction(Request $request)
+    {
+        return $this->render('Front/datatable.html.twig'
+        );
+    }
 }
