@@ -1,20 +1,22 @@
 ///addRow
 $(document).ready(function() {
-    var table = $('#example').DataTable();
-    var counter = 1;
-    var checkbox = '';
+    let table = $('#example').DataTable();
+    let counter = 1;
+    let trash = '<i class="fas fa-trash-alt"></i>';
+    let update = '<i class="fas fa-check update"></i>';
+
 
     $('#addRow').on( 'click', function () {
         table.row.add( [
-            'counter',
+            counter,
             'F',
             'G',
             '',
             '',
             '',
             '',
-            '',
-            checkbox
+            update,
+            trash
         ] ).draw( false );
 
         counter++;
@@ -29,9 +31,9 @@ $(document).ready(function() {
     var table = $('#example').DataTable();
 
     $('#example tbody').on( 'click', '.trash', function () {
-        let cel = $(this).closest('tr').find("td:nth-child(2)").html();
+        let brand = $(this).closest('tr').find("td:nth-child(2)").html();
         let txt;
-        let r = confirm("Etes-vous sûr de vouloir supprimer : \n"+ cel +' ?');
+        let r = confirm("Etes-vous sûr de vouloir supprimer : \n"+ brand +' ?');
         if (r == true) {
             table
                 .row( $(this).parents('tr') )

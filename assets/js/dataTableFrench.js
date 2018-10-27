@@ -1,7 +1,12 @@
 $('#example').DataTable({
 
     autoFill: {
-        vertical: false
+        vertical: false,
+        columns: [ 1, 2, 3, 4, 5, 6],
+        cancel: 'Fermer sans mise à jour',
+        fill: 'Etendre la cellule avec la même valeur',
+        fillHorizontal: 'Copier les valeurs horizontallement',
+        increment: 'Changer chaque cellule par : <input type="number" value="1">'
     },
 
     dom: 'Bfrtip',
@@ -30,6 +35,7 @@ $('#example').DataTable({
     "ordering": true,
     "info":     true,
     "order": [[ 2, "desc" ]],
+
     "columnDefs": [
         {
             "targets": [ 0 ],
@@ -54,8 +60,8 @@ $('#example').DataTable({
         {
             "targets": [ 8 ],
             "visible": true,
-            "searchable": false
-        }
+            "searchable": false,
+        },
 
     ],
 
@@ -87,16 +93,11 @@ $('#example').DataTable({
                 1: "1 ligne séléctionnée"
             }
         },
-        autoFill: {
-            cancel: 'Fermer sans mise à jour',
-            fill: 'Etendre la cellule avec la même valeur',
-            fillHorizontal: 'Copier les valeurs horizontallement',
-            increment: 'Changer chaque cellule par : <input type="number" value="1">'
-        }
 
 
 
 
+    },
 
-    }
+
 });

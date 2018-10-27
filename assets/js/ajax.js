@@ -45,7 +45,7 @@ $('.trash').on( "click", function(){
 //update object in DB
 $('.update').on( "click", function(){
     //$(this).closest('tr').remove();
-    var personnage = $(this).closest('tr').find("td:nth-child(1)").html();
+    var personnage = $(this).closest('tr').find("td:nth-child(2)").html();
 
     $( '#var' ).text(personnage);
 });
