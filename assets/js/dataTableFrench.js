@@ -1,4 +1,17 @@
 $('#example').DataTable({
+    "paging":   true,
+    "ordering": true,
+    "info":     true,
+    "order": [[ 2, "desc" ]],
+    "columnDefs": [
+        {
+            "targets": [ 0 ],
+            "visible": false,
+            "searchable": false
+        },
+
+    ],
+
     "language": {
         "sProcessing": "Traitement en cours ...",
         "sLengthMenu": "Afficher _MENU_ lignes",
