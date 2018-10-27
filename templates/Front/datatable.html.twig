@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.4/b-print-1.5.4/datatables.min.css"/>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class= "row">
+            <div class= "col-xs-12">
+                <button id="addRow"type="button" class="btn btn-primary my-3">Ajouter </button>
+                <button id="print"type="button" type="submit" onclick="print('Imprimer')" class="btn btn-primary my-3">Imprimer </button>
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                        <th>Column 4</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input id="check" type="checkbox"></td>
+                        <td>Column 1</td>
+                        <td></td>
+                        <td>Column 3</td>
+                        <td>Column 4</td>
+                        <td><i class="fas fa-trash-alt" id="icon-delete"></i></td>
+                    </tr>
+                    <tr>
+                        <td><input id="check" type="checkbox"></td>
+                        <td>Column 1</td>
+                        <td></td>
+                        <td>Column 3</td>
+                        <td>Column 4</td>
+                        <td><i class="fas fa-trash-alt" id="icon-delete"></i></td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th></th>
+                        <th>Column 1</th>
+                        <th>Column 2</th>
+                        <th>Column 3</th>
+                        <th>Column 4</th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="{{ asset('build/addRow.js') }}"></script>
+    <script>
+    </script>
+{% endblock %}

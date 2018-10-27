@@ -8,5 +8,5 @@ import '../css/app.scss';
 var greet = require('./greet');
 
 $(document).ready(function() {
-    $('body').prepend('<h1>'+greet('john')+'</h1>');
+    $('body').prepend('<p>'+greet('David')+'</p>');
 });

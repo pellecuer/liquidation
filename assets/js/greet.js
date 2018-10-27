@@ -1,3 +1,3 @@
 module.exports = function(name) {
-    return `Yo yo ${name} - welcome to Encore!`;
+    return `Bonjour ${name} - Bienvenue sur Liquidation avant travaux!`;
 };
