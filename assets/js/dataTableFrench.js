@@ -1,27 +1,19 @@
 $('#example').DataTable({
-    autoFill: true,
-    dom: 'Bfrtip',
-    buttons: [
-        'copyHtml5',
-        'excelHtml5',
-        'csvHtml5',
-        {
-            extend: 'pdfHtml5',
-            orientation: 'landscape',
-            pageSize: 'LEGAL'
-        }
-    ],
     "paging":   true,
     "ordering": true,
     "info":     true,
     "order": [[ 2, "desc" ]],
     "columnDefs": [
         {
-            "targets": [ 0 ],
+            "targets": [ 2 ],
             "visible": false,
             "searchable": false
         },
-
+        {
+            "targets": [ 3 ],
+            "visible": false,
+            "searchable": false
+        }
     ],
 
     "language": {
@@ -50,5 +42,9 @@ $('#example').DataTable({
                 1: "1 ligne séléctionnée"
             }
         }
+
+
+
+
     }
 });

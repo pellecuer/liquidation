@@ -2,18 +2,18 @@
 $(document).ready(function() {
     var table = $('#example').DataTable();
     var counter = 1;
-    var checkbox = 'coco';
+    var checkbox = '';
 
     $('#addRow').on( 'click', function () {
         table.row.add( [
-            'J',
-            'J',
-            'J',
-            'H',
-            'H',
-            'H',
-            'H',
-            'H',
+            'counter',
+            'F',
+            'G',
+            '',
+            '',
+            '',
+            '',
+            '',
             checkbox
         ] ).draw( false );
 
@@ -21,7 +21,7 @@ $(document).ready(function() {
     } );
 
     // Automatically add a first row of data
-    $('#addRow').click();
+    //$('#addRow').click();
 } );
 
 //deleteRow
