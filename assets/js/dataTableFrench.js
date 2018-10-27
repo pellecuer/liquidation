@@ -1,20 +1,65 @@
 $('#example').DataTable({
+
+    autoFill: {
+        vertical: false
+    },
+
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            extend: 'print',
+            text: 'Imprimer',
+            autoPrint: true
+        },
+        {
+            extend: 'copyHtml5',
+            text: 'Copier'
+        },
+        {
+            extend: 'excelHtml5',
+            text: 'Excel'
+        },
+        {
+            extend: 'pdfHtml5',
+            text: 'PDF',
+            orientation: 'landscape',
+            pageSize: 'LEGAL'
+        },
+    ],
     "paging":   true,
     "ordering": true,
     "info":     true,
     "order": [[ 2, "desc" ]],
     "columnDefs": [
         {
-            "targets": [ 2 ],
-            "visible": false,
+            "targets": [ 0 ],
+            "visible": true,
             "searchable": false
         },
         {
-            "targets": [ 3 ],
-            "visible": false,
+            "targets": [ 2 ],
+            "visible": true,
+            "searchable": false
+        },
+        {
+            "targets": [ 4 ],
+            "visible": true,
+            "searchable": false
+        },
+        {
+            "targets": [ 7 ],
+            "visible": true,
+            "searchable": false
+        },
+        {
+            "targets": [ 8 ],
+            "visible": true,
             "searchable": false
         }
+
     ],
+
+
 
     "language": {
         "sProcessing": "Traitement en cours ...",
@@ -41,7 +86,14 @@ $('#example').DataTable({
                 0: "Aucune ligne séléctionnée",
                 1: "1 ligne séléctionnée"
             }
+        },
+        autoFill: {
+            cancel: 'Fermer sans mise à jour',
+            fill: 'Etendre la cellule avec la même valeur',
+            fillHorizontal: 'Copier les valeurs horizontallement',
+            increment: 'Changer chaque cellule par : <input type="number" value="1">'
         }
+
 
 
 

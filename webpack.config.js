@@ -27,7 +27,6 @@ Encore
     .addEntry('datatable', './assets/js/datatable.js')
     .addEntry('addRow', './assets/js/addRow.js')
     .addEntry('dataTableFrench', './assets/js/dataTableFrench.js')
-    .addEntry('printDataTable', './assets/js/printDataTable.js')
     .addEntry('alertDataTable', './assets/js/alertDataTable.js')
 
 

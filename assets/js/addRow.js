@@ -29,9 +29,18 @@ $(document).ready(function() {
     var table = $('#example').DataTable();
 
     $('#example tbody').on( 'click', '.trash', function () {
-        table
-            .row( $(this).parents('tr') )
-            .remove()
-            .draw();
+        let cel = $(this).closest('tr').find("td:nth-child(2)").html();
+        let txt;
+        let r = confirm("Etes-vous sûr de vouloir supprimer : \n"+ cel +' ?');
+        if (r == true) {
+            table
+                .row( $(this).parents('tr') )
+                .remove()
+                .draw();
+        } else {
+            txt = "opération annulée!";
+        }
+        document.getElementById("titre").innerHTML = txt;
+
     } );
 } );
