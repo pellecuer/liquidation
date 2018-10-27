@@ -1,4 +1,16 @@
 $('#example').DataTable({
+    autoFill: true,
+    dom: 'Bfrtip',
+    buttons: [
+        'copyHtml5',
+        'excelHtml5',
+        'csvHtml5',
+        {
+            extend: 'pdfHtml5',
+            orientation: 'landscape',
+            pageSize: 'LEGAL'
+        }
+    ],
     "paging":   true,
     "ordering": true,
     "info":     true,
