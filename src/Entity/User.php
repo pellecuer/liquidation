@@ -16,7 +16,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
- * @ORM\Table(name="app_users")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity
  * @UniqueEntity(fields="email", message="Email already taken")
  */
