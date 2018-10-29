@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-10">
+            <div class="col">
                  <span class="fa-stack fa-1x my-2" id="addRow">
                     <i class="fas fa-circle fa-stack-2x text-primary"></i>
                     <a href="#"><i class="fas fa-plus fa-stack-1x fa-inverse"></i></a>
@@ -31,21 +31,29 @@
                     <!--<caption>Liste des produits</caption>-->
                     <thead class="thead-dark">
                         <tr>
-                        <tr>
-                            {% for diary in diaries %}
-                                <th scope="col" class="editFor">{{ diary.date|date('D') }}</th>
-                            {% endfor %}
-                        </tr>
-                        <tr>
-                            {% for diary in diaries %}
-                                <td class="editFor">{{ diary.date|date('d') }}</td>
-                            {% endfor %}
-                            <td class="update" scope ="col"><i class="fas fa-check"></i></td>
-                            <td class="trash" scope ="col"><i class="fas fa-trash-alt"></i></td>
+                            <th scope="col" ></th>
+                            <th scope="col" >L</th>
+                            <th scope="col" >M</th>
+                            <th scope="col" >M</th>
+                            <th scope="col" >J</th>
+                            <th scope="col" >V</th>
+                            <th scope="col" >S</th>
+                            <th scope="col">D</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        <tr>
+                            <td class="">Jean</td>
+                            <td class="editFor">A</td>
+                            <td class="editFor">J</td>
+                            <td class="editFor">V</td>
+                            <td class="editFor">B</td>
+                            <td class="editFor">E</td>
+                            <td class="editFor">U</td>
+                            <td class="editFor">V</td>
+                            <td class="update" scope ="col"><i class="fas fa-check"></i></td>
+                            <td class="trash" scope ="col"><i class="fas fa-trash-alt"></i></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -64,6 +72,5 @@
      <script type="text/javascript" src="{{ asset('build/dataTableFrench.js') }}"></script>
      <script type="text/javascript" src="{{ asset('build/ajax.js') }}"></script>
      <script type="text/javascript" src="{{ asset('build/printDataTable.js') }}"></script>
-     <script>
-     </script>
+     <script type="text/javascript" src="{{ asset('build/tabNavigation.js') }}"></script>
  {% endblock %}

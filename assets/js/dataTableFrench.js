@@ -2,7 +2,7 @@ $('#example').DataTable({
 
     autoFill: {
         vertical: false,
-        columns: [ 1, 2, 3, 4, 5, 6],
+        columns: [ 2, 3, 4, 5, 6, 7, 8],
         cancel: 'Fermer sans mise à jour',
         fill: 'Etendre la cellule avec la même valeur',
         fillHorizontal: 'Copier les valeurs horizontallement',
@@ -37,18 +37,29 @@ $('#example').DataTable({
     "order": [[ 2, "desc" ]],
 
     "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "visible": true,
-            "searchable": false
-        },
+
         {
             "targets": [ 2 ],
             "visible": true,
             "searchable": false
         },
         {
+            "targets": [ 3 ],
+            "visible": true,
+            "searchable": false
+        },
+        {
             "targets": [ 4 ],
+            "visible": true,
+            "searchable": false
+        },
+        {
+            "targets": [ 5 ],
+            "visible": true,
+            "searchable": false
+        },
+        {
+            "targets": [ 6 ],
             "visible": true,
             "searchable": false
         },
@@ -62,7 +73,6 @@ $('#example').DataTable({
             "visible": true,
             "searchable": false,
         },
-
     ],
 
 
@@ -93,11 +103,5 @@ $('#example').DataTable({
                 1: "1 ligne séléctionnée"
             }
         },
-
-
-
-
     },
-
-
 });
