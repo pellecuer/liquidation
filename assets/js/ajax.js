@@ -1,11 +1,11 @@
 //Event handlers
 $(".editFor" ).on( "mouseenter", function(){
-    $( this).css( "background-color", "#C6E2FF");
+    //$( this).css( "background-color", "#C6E2FF");
     //$('html,body').css('cursor','crosshair');
     $(this).attr('contenteditable', 'true');
 });
 $(".editFor" ).on( "mouseleave", function(){
-    $( this).css( "background-color", "#ffffff");
+    //$( this).css( "background-color", "transparent");
     //$('html,body').css('cursor','crosshair');
     $(this).attr('contenteditable', 'false');
 });

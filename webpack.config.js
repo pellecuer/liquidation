@@ -28,6 +28,8 @@ Encore
     .addEntry('addRow', './assets/js/addRow.js')
     .addEntry('dataTableFrench', './assets/js/dataTableFrench.js')
     .addEntry('alertDataTable', './assets/js/alertDataTable.js')
+    .addEntry('tabNavigation', './assets/js/tabNavigation.js')
+
 
 
     .cleanupOutputBeforeBuild()
