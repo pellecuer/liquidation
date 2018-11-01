@@ -34,6 +34,34 @@ $('.editFor').on( "keyup", function(){
     });
 });
 
+//StartDate enDate
+$('.btn').on( "click", function(){
+    //var startDate = $("#startDate").val();
+    //var endDate = $("#endDate").val();
+    var startDate = $('input[name="start"]').val();
+    var endDate = $('input[name="start"]').val();
+
+    $.ajax({
+        url:'/agenda/team',
+        type: "POST",
+        dataType: "json",
+        data: {
+            "startDate": startDate,
+            "endDate": endDate
+        },
+        async: true,
+        success: function (data)
+        {
+            console.log(data);
+            $( '#titre' ).text(data.titre);
+            $( '#producteur' ).text(data.producteur);
+        }
+    });
+});
+
+
+
+
 //delete object in DB
 $('.trash').on( "click", function(){
     //$(this).closest('tr').remove();
@@ -49,5 +77,7 @@ $('.update').on( "click", function(){
 
     $( '#var' ).text(personnage);
 });
+
+
 
 

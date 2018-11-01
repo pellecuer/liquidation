@@ -30,21 +30,21 @@
         <div class="row">
             <div class="col-md-8">
                 <form class="form-inline">
-                    <label class="sr-only" for="inlineFormInputName2">Début</label>
+                    <label class="sr-only" for="startDate">Début</label>
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="far fa-calendar"></i></div>
                         </div>
-                        <input type="date" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+                        <input type="date" class="form-control" id="startDate" name="start" placeholder="Username">
                     </div>
 
-                    <label class="sr-only" for="inlineFormInputGroupUsername2">Fin</label>
+                    <label class="sr-only" for="endDate">Fin</label>
                     <div class="input-group mb-2 mr-sm-2">
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="fas fa-calendar"></i>
                             </div>
                         </div>
-                        <input type="date" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+                        <input type="date" class="form-control" id="endDate" name="end" placeholder="Username">
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Valider</button>
                 </form>
@@ -63,14 +63,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Jean</td>
-                        {% for agentBetween in agentBetweens %}
-                            <td class="editFor" >{{ agentBetween.letter }}</td>
+                        {% set rowNumber = 10 %}
+                        {% for i in 0..rowNumber %}
+                            <tr>
+                            {% for agentBetween in agentBetweens.0 %}
+                                <td class="editFor" >{{ agentBetween.letter }}</td>
+                            {% endfor %}
+                            <td class="update" scope ="col"><i class="fas fa-check"></i></td>
+                            <td class="trash" scope ="col"><i class="fas fa-trash-alt"></i></td>
+                            </tr>
                         {% endfor %}
-                        <td class="update" scope ="col"><i class="fas fa-check"></i></td>
-                        <td class="trash" scope ="col"><i class="fas fa-trash-alt"></i></td>
-                    </tr>
                     </tbody>
                 </table>
             </div>
