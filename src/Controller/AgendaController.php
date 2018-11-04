@@ -44,7 +44,7 @@ class AgendaController extends AbstractController
     {
         $startDate = new \DateTime('now - 200 days',  new \DateTimeZone('Europe/Paris'));
         $endDate = new \DateTime(('11-01-2019'));
-        $agent = ['Jean', 'Jules', 'Paul'];
+        $agent = ['Jean', 'Jules', 'Paul', 'Christelle'];
 
         $dateBetweens = $this->getDoctrine()
             ->getRepository(Agenda::class)

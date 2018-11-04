@@ -107,7 +107,7 @@
           <entry key="gitignore" value="32" />
           <entry key="index" value="106" />
           <entry key="js" value="2190" />
-          <entry key="php" value="2643" />
+          <entry key="php" value="2660" />
           <entry key="scss" value="84" />
           <entry key="twig" value="4342" />
           <entry key="yaml" value="46" />
@@ -119,7 +119,7 @@
           <entry key="CSS" value="165" />
           <entry key="Git file" value="32" />
           <entry key="JavaScript" value="2190" />
-          <entry key="PHP" value="2643" />
+          <entry key="PHP" value="2660" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="SCSS" value="84" />
           <entry key="Twig" value="4463" />
@@ -135,11 +135,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/AgendaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="54" column="42" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="54" selection-end-column="42" />
+            <state relative-caret-position="291">
+              <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
               <folding>
                 <element signature="e#34#56#0#PHP" expanded="true" />
                 <element signature="e#534#546#1#PHP" expanded="true" />
@@ -153,7 +153,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Repository/AgendaRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="150">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
@@ -171,7 +171,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/agenda/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="337">
@@ -251,8 +251,8 @@
         <option value="$PROJECT_DIR$/src/Controller/AjaxController.php" />
         <option value="$PROJECT_DIR$/assets/js/ajax.js" />
         <option value="$PROJECT_DIR$/src/Form/AgendaType.php" />
-        <option value="$PROJECT_DIR$/src/Controller/AgendaController.php" />
         <option value="$PROJECT_DIR$/templates/agenda/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/AgendaController.php" />
       </list>
     </option>
   </component>
@@ -555,12 +555,12 @@
       <workItem from="1540744551173" duration="22703000" />
       <workItem from="1540928174892" duration="901000" />
       <workItem from="1540929138266" duration="8943000" />
-      <workItem from="1541007360201" duration="56960000" />
+      <workItem from="1541007360201" duration="57155000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232726000" />
+    <option name="totallyTimeSpent" value="232921000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -575,7 +575,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23519646" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23519646" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -588,7 +588,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4986165" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49418926" visible="true" weight="0.25621623" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.49418926" visible="true" weight="0.25621623" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013835" side_tool="true" weight="0.25621623" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -900,30 +900,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/agenda/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/AgendaRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="150">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AgendaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="54" column="42" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="54" selection-end-column="42" />
+        <state relative-caret-position="291">
+          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
             <element signature="e#534#546#1#PHP" expanded="true" />
             <element signature="e#761#784#0#PHP" expanded="true" />
             <element signature="e#1590#1614#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/agenda/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="71" column="36" selection-start-line="71" selection-start-column="36" selection-end-line="71" selection-end-column="36" />
         </state>
       </provider>
     </entry>
