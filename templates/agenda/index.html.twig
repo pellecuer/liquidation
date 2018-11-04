@@ -64,12 +64,30 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Jean</td>
+                        {{ dump (agentBetweens) }}
+
+
                         {% for agentBetween in agentBetweens %}
-                            <td class="editFor" >{{ agentBetween.letter }}</td>
+                            <tr>
+                                <td>{{agentBetween.0.agent  }}</td>
+
+                               {% for letter in agentBetween %}
+                                    <td>{{ letter.letter }}</td>
+                                {% endfor %}agent
+                            </tr>
                         {% endfor %}
-                        <td class="update" scope ="col"><i class="fas fa-check"></i></td>
-                        <td class="trash" scope ="col"><i class="fas fa-trash-alt"></i></td>
+
+
+
+
+                        {#
+                        {% for agentBetween in agentBetweens %}
+                             <td class="editFor" >{{ agentBetween.0.agent }}</td>
+                             <td class="editFor" >{{ agentBetween.0.letter }}</td>
+                         {% endfor %}
+                         <td class="update" scope ="col"><i class="fas fa-check"></i></td>
+                         <td class="trash" scope ="col"><i class="fas fa-trash-alt"></i></td>
+                         #}
                     </tr>
                     </tbody>
                 </table>

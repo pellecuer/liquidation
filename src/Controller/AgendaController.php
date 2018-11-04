@@ -44,15 +44,17 @@ class AgendaController extends AbstractController
     {
         $startDate = new \DateTime('now - 200 days',  new \DateTimeZone('Europe/Paris'));
         $endDate = new \DateTime(('11-01-2019'));
-        $agent = 'Jean';
+        $agent = ['Jean', 'Jules', 'Paul'];
 
         $dateBetweens = $this->getDoctrine()
             ->getRepository(Agenda::class)
             ->findDateBetweenDate($startDate, $endDate);
 
-        $agentBetweens = $this->getDoctrine()
+        For ($i=0; $i<count($agent); $i++){
+        $agentBetweens[] = $this->getDoctrine()
             ->getRepository(Agenda::class)
-            ->findAgentBetweenDate($startDate, $endDate, $agent);
+            ->findAgentBetweenDate($startDate, $endDate, $agent[$i]);
+        }
 
 
 
