@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Agenda;
+use App\Form\AgendaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Symfony\Component\HttpFoundation\Request;
+
 
 
 class AgendaController extends AbstractController
@@ -38,29 +41,77 @@ class AgendaController extends AbstractController
      *  Lists all agenda entities.
      *
      * @Route("/agenda/team", name="agendaTeam")
-     * @Method("GET")
+     * @Method({"POST", "GET"})
      */
-    public function indexTeamAction()
+    public function indexTeamAction(Request $request)
     {
         $startDate = new \DateTime('now - 200 days',  new \DateTimeZone('Europe/Paris'));
         $endDate = new \DateTime(('11-01-2019'));
         $agent = ['Jean', 'Jules', 'Paul', 'Christelle'];
 
-        $dateBetweens = $this->getDoctrine()
-            ->getRepository(Agenda::class)
-            ->findDateBetweenDate($startDate, $endDate);
+        //create the form
+        $form = $this->createForm(AgendaType::class);
+        $form->handleRequest($request);
 
-        For ($i=0; $i<count($agent); $i++){
-        $agentBetweens[] = $this->getDoctrine()
-            ->getRepository(Agenda::class)
-            ->findAgentBetweenDate($startDate, $endDate, $agent[$i]);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $startDate = $data['startDate'];
+            $endDate = $data['endDate'];
+
+            For ($i=0; $i<count($agent); $i++){
+                $agentBetweens[] = $this->getDoctrine()
+                    ->getRepository(Agenda::class)
+                    ->findAgentBetweenDate($startDate, $endDate, $agent[$i]);
+            }
+
+            $diff=$startDate->diff($endDate)->days;
+            $diff1Day = new \DateInterval('P1D');
+            $arrayDate = [];
+
+
+            for ($i=0;$i<$diff;$i++){
+                $arrayDate[] =  $startDate;
+                $startDate = $startDate->add($diff1Day);
+            }
+
+            return $this->render('agenda/index.html.twig', [
+                'dateBetweens' => $arrayDate,
+                'agentBetweens' => $agentBetweens,
+                'form' => $form->createView()
+            ]);
+
+
+        } else {
+
+
+
+
+            For ($i=0; $i<count($agent); $i++){
+            $agentBetweens[] = $this->getDoctrine()
+                ->getRepository(Agenda::class)
+                ->findAgentBetweenDate($startDate, $endDate, $agent[$i]);
+            }
+
+            $startDate = new \DateTimeImmutable('now - 3 days',  new \DateTimeZone('Europe/Paris'));
+            $endDate = new \DateTime('now + 2 day',  new \DateTimeZone('Europe/Paris'));
+
+            $diff=$startDate->diff($endDate)->days;
+            $diff1Day = new \DateInterval('P1D');
+            $arrayDate = [];
+
+
+            for ($i=0;$i<$diff;$i++){
+                $arrayDate[] =  $startDate;
+                $startDate = $startDate->add($diff1Day);
+            }
+
+
+
+            return $this->render('agenda/index.html.twig', [
+                'dateBetweens' => $arrayDate,
+                'agentBetweens' => $agentBetweens,
+                'form' => $form->createView()
+            ]);
         }
-
-
-
-        return $this->render('agenda/index.html.twig', [
-            'dateBetweens' => $dateBetweens,
-            'agentBetweens' => $agentBetweens
-        ]);
     }
 }

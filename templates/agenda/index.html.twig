@@ -35,6 +35,35 @@
                         <div class="input-group-prepend">
                             <div class="input-group-text"><i class="far fa-calendar"></i></div>
                         </div>
+                        <div>
+                        {{ form_label(form.startDate) }}
+                        {{ form_errors(form.startDate) }}
+                        {{ form_widget(form.startDate) }}
+                        {{ form_help(form.startDate) }}
+                        </div>
+                    </div>
+                    <label class="sr-only" for="inlineFormInputName2">Début</label>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="far fa-calendar"></i></div>
+                        </div>
+                        <div>
+                            {{ form_label(form.endDate) }}
+                            {{ form_errors(form.endDate) }}
+                            {{ form_widget(form.endDate) }}
+                            {{ form_help(form.endDate) }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Valider</button>
+                </form>
+
+
+                {#<form class="form-inline">
+                    <label class="sr-only" for="inlineFormInputName2">Début</label>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="far fa-calendar"></i></div>
+                        </div>
                         <input type="date" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
                     </div>
 
@@ -47,7 +76,7 @@
                         <input type="date" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Valider</button>
-                </form>
+                </form>#}
             </div>
         </div>
         <div class= "row">
@@ -73,7 +102,7 @@
 
                                {% for letter in agentBetween %}
                                     <td>{{ letter.letter }}</td>
-                                {% endfor %}agent
+                                {% endfor %}
                             </tr>
                         {% endfor %}
 
@@ -115,4 +144,15 @@
      <script type="text/javascript" src="{{ asset('build/ajax.js') }}"></script>
      <script type="text/javascript" src="{{ asset('build/printDataTable.js') }}"></script>
      <script type="text/javascript" src="{{ asset('build/tabNavigation.js') }}"></script>
+     <script>
+         <script>
+         $(document).ready(function() {
+             // you may need to change this code if you are not using Bootstrap Datepicker
+             $('.js-datepicker').datepicker({
+                 format: 'yyyy-mm-dd'
+             });
+         });
+     </script>
+
+
  {% endblock %}
