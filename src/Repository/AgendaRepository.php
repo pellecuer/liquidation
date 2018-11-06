@@ -20,7 +20,6 @@ class AgendaRepository extends ServiceEntityRepository
     }
 
 
-
     /**
      * @return Agenda[] Returns an array of Agenda objects
      */
