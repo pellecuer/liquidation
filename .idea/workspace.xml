@@ -115,7 +115,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/AgendaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="1065">
               <caret line="110" column="36" selection-start-line="110" selection-start-column="36" selection-end-line="110" selection-end-column="36" />
               <folding>
                 <element signature="e#34#56#0#PHP" expanded="true" />
@@ -542,12 +542,12 @@
       <workItem from="1540928174892" duration="901000" />
       <workItem from="1540929138266" duration="8943000" />
       <workItem from="1541007360201" duration="57556000" />
-      <workItem from="1541369548960" duration="22647000" />
+      <workItem from="1541369548960" duration="23204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255969000" />
+    <option name="totallyTimeSpent" value="256526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -924,7 +924,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AgendaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="1065">
           <caret line="110" column="36" selection-start-line="110" selection-start-column="36" selection-end-line="110" selection-end-column="36" />
           <folding>
             <element signature="e#34#56#0#PHP" expanded="true" />
