@@ -3,10 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Agenda;
+use App\Form\AgendaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
+
 
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -40,13 +42,14 @@ class AgendaController extends AbstractController
 
 
     /**
-     *  Lists all agenda entities.
+     *  Lists all agenda entities by Date.
      *
      * @Route("/agenda/team", name="agendaTeam")
      * @Method({"POST", "GET"})
      */
     public function indexTeamAction(Request $request)
     {
+
         //$startDate = new \DateTime('now - 200 days',  new \DateTimeZone('Europe/Paris'));
         //$endDate = new \DateTime(('11-01-2019'));
 
@@ -121,12 +124,10 @@ class AgendaController extends AbstractController
         }
 
 
-
-
         return $this->render('agenda/index.html.twig', [
             'dateBetweens' => $arrayDate,
             'agentBetweens' => $agentBetweens,
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
 
     }
