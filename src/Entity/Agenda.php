@@ -31,6 +31,13 @@ class Agenda
      */
     private $letter;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="agenda")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $team;
+
+
     public function getId()
     {
         return $this->id;
@@ -68,6 +75,18 @@ class Agenda
     public function setLetter(string $letter): self
     {
         $this->letter = $letter;
+
+        return $this;
+    }
+
+    public function getTeam(): ?Team
+    {
+        return $this->team;
+    }
+
+    public function setTeam(?Team $team): self
+    {
+        $this->team = $team;
 
         return $this;
     }

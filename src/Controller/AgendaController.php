@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Agenda;
-use App\Form\AgendaType;
+use App\Entity\Team;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -19,26 +20,50 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 class AgendaController extends AbstractController
 {
     /**
-     *  Lists all agenda entities.
      *
      * @Route("/agenda", name="agenda")
-     * @Method("GET")
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-        $agendas = $em->getRepository('App:Agenda')->findAll();
+        $team = new Team();
+        $team->setName('bleu');
 
-        //mise en forme du tableau
-        $agenda=[];
-        for ($i = 0; $i < count($agendas); $i++) {
-            $agenda[$i+1] = $agendas[$i]->getDate();
-        }
+        $agenda = new Agenda();
+        $agenda->setDate(\DateTime::createFromFormat('Y-m-d', "2020-01-01"));
+        $agenda->setAgent('Jean');
+        $agenda->setLetter('J');
 
-        return $this->render('diary/index.html.twig', [
-            'agenda' => $agenda,
-        ]);
+        // relates this product to the category
+        $agenda->setTeam($team);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($team);
+        $entityManager->persist($agenda);
+        $entityManager->flush();
+
+        return new Response(
+            'Saved new agenda with id: '.$agenda->getId()
+            .' and new team with id: '.$team->getId()
+        );
     }
+
+
+
+    public function show($id)
+    {
+        $agenda = $this->getDoctrine()
+            ->getRepository(Agenda::class)
+            ->find($id);
+
+        // ...
+
+        $teamName = $agenda->getTeam()->getName();
+
+        // ...
+    }
+
+
+
 
 
     /**
