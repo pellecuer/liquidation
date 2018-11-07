@@ -10,6 +10,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 
 
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Validator\Constraints\NotBlank;
+
+
+
 class AgendaController extends AbstractController
 {
     /**
@@ -29,7 +35,6 @@ class AgendaController extends AbstractController
             $agenda[$i+1] = $agendas[$i]->getDate();
         }
 
-
         return $this->render('diary/index.html.twig', [
             'agenda' => $agenda,
         ]);
@@ -40,51 +45,90 @@ class AgendaController extends AbstractController
      *  Lists all agenda entities by Date.
      *
      * @Route("/agenda/team", name="agendaTeam")
-     * @Method("GET")
+     * @Method({"POST", "GET"})
      */
     public function indexTeamAction(Request $request)
     {
-        //row date
-        //$startDate = new \DateTimeImmutable('now',  new \DateTimeZone('Europe/Paris'));
-        //$endDate = new \DateTime('now + 5 days',  new \DateTimeZone('Europe/Paris'));
+
+        //$startDate = new \DateTime('now - 200 days',  new \DateTimeZone('Europe/Paris'));
+        //$endDate = new \DateTime(('11-01-2019'));
 
 
-        // Ajax Date
-        $startDateAjax = strtoupper($request->request->get('startDate'));
-        $endDateAjax = strtoupper($request->request->get('endDate'));
-        var_dump($endDateAjax);
-        $startDate = new \DateTimeImmutable($startDateAjax,  new \DateTimeZone('Europe/Paris'));
-        $endDate = new \DateTime($endDateAjax,  new \DateTimeZone('Europe/Paris'));
+        //create the form
+        $form = $this->createFormBuilder()
+            ->add('startDate', DateType::class, array(
+                'placeholder' => 'Choose a delivery option',
+                'constraints' => array(
+                    new NotBlank()
+                ),
+                'widget' => 'single_text',
+                'label'  => 'Date de début',
+                'attr' => array('class' => 'form-group mb-2'),
+            ))
 
+            ->add('endDate', DateType::class, array(
+                'placeholder' => 'Choose a delivery option',
+                'constraints' => array(
+                    new NotBlank()
+                ),
+                'widget' => 'single_text',
+                'label'  => 'Date de fin',
+                'attr' => array('class' => 'form-group mx-sm-3 mb-2'),
+            ))
 
+            ->add('Envoyer', SubmitType::class, array(
+                'attr' => array('class' => 'btn btn-primary mb-2 sendDate'),
+            ))
 
+            ->getForm()
+        ;
 
-        $diff=$startDate->diff($endDate)->days;
-        $diff1Day = new \DateInterval('P1D');
+        //get date from Form
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $startDate = $data['startDate'];
+            $endDate = $data['endDate'];
+            //dump($startDate);die;
+
+        } else {
+
+            $startDate = new \DateTime('now - 1000 days',  new \DateTimeZone('Europe/Paris'));
+            $endDate = new \DateTime('now + 2 day',  new \DateTimeZone('Europe/Paris'));
+        }
+
+        //dump($startDate);die;
+
+        //build letterArray
+        $agent = ['Jean', 'Jules', 'Paul', 'Christelle'];
+        $agentBetweens = [];
+        For ($i=0; $i<count($agent); $i++){
+            $agentBetweens[] = $this->getDoctrine()
+                ->getRepository(Agenda::class)
+                ->findAgentBetweenDate($startDate, $endDate, $agent[$i]);
+        }
+        //dump($agentBetweens);die;
+
+        //build dateArray
+        $diff=$startDate->diff($endDate)->format("%a");
+        $interval = new \DateInterval('P1D');
         $arrayDate = [];
+
+        $immutable = \DateTimeImmutable::createFromMutable($startDate);
 
 
         for ($i=0;$i<$diff;$i++){
-            $arrayDate[] =  $startDate;
-             $startDate = $startDate->add($diff1Day);
-        }
-
-        //row team
-        $team = ['Jean', 'Paul'];
-
-        for ($i =0; $i<count($team); $i++){
-
-        $agentBetweens[$i] = $this->getDoctrine()
-            ->getRepository(Agenda::class)
-            ->findAgentBetweenDate($startDate, $endDate, $team[0]);
-
+            $arrayDate[] = $immutable ;
+            $immutable = $immutable->add($interval);
         }
 
 
         return $this->render('agenda/index.html.twig', [
             'dateBetweens' => $arrayDate,
             'agentBetweens' => $agentBetweens,
-            'rowNumber' => $i,
+            'form' => $form->createView(),
         ]);
+
     }
 }
