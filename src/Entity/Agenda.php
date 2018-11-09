@@ -21,10 +21,6 @@ class Agenda
      */
     private $date;
 
-    /**
-     * @ORM\Column(type="string", length=45)
-     */
-    private $agent;
 
     /**
      * @ORM\Column(type="string", length=2)
@@ -55,17 +51,6 @@ class Agenda
         return $this;
     }
 
-    public function getAgent(): ?string
-    {
-        return $this->agent;
-    }
-
-    public function setAgent(string $agent): self
-    {
-        $this->agent = $agent;
-
-        return $this;
-    }
 
     public function getLetter(): ?string
     {
