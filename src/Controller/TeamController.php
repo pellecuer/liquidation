@@ -13,53 +13,50 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use App\Entity\Category;
-use App\Entity\Agent;
+use App\Entity\Team;
 use Symfony\Component\HttpFoundation\Response;
 
 
 /**
- * Agent controller.
+ * team controller.
  *
- * @Route("agent")
+ * @Route("team")
  */
-class AgentController extends AbstractController
+class TeamController extends AbstractController
 {
 
 
     /**
-     *  Lists all agent entities.
+     *  Lists all team entities.
      *
-     * @Route("/show", name="agentShow")     *
+     * @Route("/show", name="teamShow")     *
      */
     public function ShowAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $agents = $em->getRepository('App:Agent')->findAll();
+        $teams = $em->getRepository('App:Team')->findAll();
 
 
-        return $this->render('agent/index.html.twig', [
-            'agents' => $agents,
+        return $this->render('team/index.html.twig', [
+            'teams' => $teams,
         ]);
     }
 
     /**
-     * @Route("/create", name="agentCreate")
+     * @Route("/create", name="teamCreate")
      */
     public function CreateAction()   {
 
 
-        $agent = new Agent();
-        $agent->setNni('E32980');
-        $agent->setName('Durand');
-        $agent->setFirstName('Jaques');
-        $agent->setFunction('Charpentier');
+        $team = new Team();        ;
+        $team->setName('Vert');
 
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($agent);
+        $entityManager->persist($team);
         $entityManager->flush();
 
         return new Response(
-            'Saved new product with id: '.$agent->getId()
+            'Saved new team with id: '.$team->getId()
         );
     }
 

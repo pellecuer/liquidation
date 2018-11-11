@@ -29,7 +29,7 @@
         </div>
         <div class="row">
             <div class="col-md-8">
-                <form action="{{ path('agendaTeam') }}" method="post" class="form-inline">
+                <form action="{{ path('agendaShow') }}" method="post" class="form-inline">
                     <div class="form-group mb-2">
                         {{ form_start(form) }}
                         {{ form_widget(form.startDate) }}
@@ -106,13 +106,12 @@
                     <tr>
                         {{ dump (agentBetweens) }}
 
-
                         {% for agentBetween in agentBetweens %}
                             <tr>
-                                <td>{{agentBetween.0.agent  }}</td>
+                                <td>{{agentBetween.0.agent.name  }}</td>
 
                                {% for letter in agentBetween %}
-                                    <td>{{ letter.letter }}</td>
+                                    <td class = "editFor">{{ letter.letter.letter }}</td>
                                 {% endfor %}
                             </tr>
                         {% endfor %}
@@ -137,12 +136,6 @@
         <h2>Détail : <span id="producteur"></span></h2>
         <h2>Affiche var : <span id="var"></span></h2>
         <h2>Voici le résultat : <span id="var"></span></h2>
-        <h2>Dates </h2>
-        <h2>
-            {% for dateBetween in dateBetweens %}
-            <span>{{ dateBetween.date| date("F jS \\a\\t g:ia") }}</span>
-            {% endfor %}
-        </h2>
     </div>
 {% endblock %}
  {% block javascripts %}

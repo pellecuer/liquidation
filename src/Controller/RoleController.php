@@ -13,53 +13,50 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 use App\Entity\Category;
-use App\Entity\Agent;
+use App\Entity\Role;
 use Symfony\Component\HttpFoundation\Response;
 
 
 /**
- * Agent controller.
+ * role controller.
  *
- * @Route("agent")
+ * @Route("role")
  */
-class AgentController extends AbstractController
+class RoleController extends AbstractController
 {
 
 
     /**
-     *  Lists all agent entities.
+     *  Lists all role entities.
      *
-     * @Route("/show", name="agentShow")     *
+     * @Route("/show", name="roleShow")     *
      */
     public function ShowAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $agents = $em->getRepository('App:Agent')->findAll();
+        $roles = $em->getRepository('App:Role')->findAll();
 
 
-        return $this->render('agent/index.html.twig', [
-            'agents' => $agents,
+        return $this->render('role/index.html.twig', [
+            'roles' => $roles,
         ]);
     }
 
     /**
-     * @Route("/create", name="agentCreate")
+     * @Route("/create", name="roleCreate")
      */
     public function CreateAction()   {
 
 
-        $agent = new Agent();
-        $agent->setNni('E32980');
-        $agent->setName('Durand');
-        $agent->setFirstName('Jaques');
-        $agent->setFunction('Charpentier');
+        $role = new Role();        ;
+        $role->setName('agent');
 
         $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($agent);
+        $entityManager->persist($role);
         $entityManager->flush();
 
         return new Response(
-            'Saved new product with id: '.$agent->getId()
+            'Saved new role with id: '.$role->getId()
         );
     }
 

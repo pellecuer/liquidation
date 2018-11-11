@@ -9,19 +9,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
-
-
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-
-
+/**
+ * Agenda controller.
+ *
+ * @Route("agenda")
+ */
 class AgendaController extends AbstractController
 {
     /**
      *
-     * @Route("/agenda", name="agenda")
+     * @Route("/", name="agenda")
      */
     public function indexAction()
     {
@@ -69,7 +70,7 @@ class AgendaController extends AbstractController
     /**
      *  Lists all agenda entities by Date.
      *
-     * @Route("/agenda/team", name="agendaTeam")
+     * @Route("/show", name="agendaShow")
      * @Method({"POST", "GET"})
      */
     public function indexTeamAction(Request $request)
@@ -119,19 +120,20 @@ class AgendaController extends AbstractController
 
         } else {
 
-            $startDate = new \DateTime('now - 1000 days',  new \DateTimeZone('Europe/Paris'));
-            $endDate = new \DateTime('now + 2 day',  new \DateTimeZone('Europe/Paris'));
+            $startDate = new \DateTime('01-02-2016',  new \DateTimeZone('Europe/Paris'));
+            $endDate = new \DateTime('02-02-2020',  new \DateTimeZone('Europe/Paris'));
+            //dump($startDate);die;
         }
 
         //dump($startDate);die;
 
         //build letterArray
-        $agent = ['Jean', 'Jules', 'Paul', 'Christelle'];
+        $agentId = [1, 2, 3];
         $agentBetweens = [];
-        For ($i=0; $i<count($agent); $i++){
+        For ($i=0; $i<count($agentId); $i++){
             $agentBetweens[] = $this->getDoctrine()
                 ->getRepository(Agenda::class)
-                ->findAgentBetweenDate($startDate, $endDate, $agent[$i]);
+                ->findAllBetweenDate($startDate, $endDate, $agentId[$i]);
         }
         //dump($agentBetweens);die;
 

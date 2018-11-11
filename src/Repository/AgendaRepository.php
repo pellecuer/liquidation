@@ -43,28 +43,27 @@ class AgendaRepository extends ServiceEntityRepository
 
     /**
      * @param $startDate, $endDate, $agent, $agendaId
-     * @return Agenda[]
+     * @return Agenda[] Returns an array of Agenda objects
      */
-    public function findAllBetweenDate($startDate, $endDate, $agendaId)
+    public function findAllBetweenDate($startDate, $endDate, $agentId)
     {
-        return $this->createQueryBuilder('a')
-            ->where('a.date > :start')
-            ->andWhere('a.date < :end')
-            ->andWhere('a.id = :id')
+        return $this->createQueryBuilder('agenda')
+            ->where('agenda.date >= :start')
+            ->andWhere('agenda.date <= :end')
 
-            ->innerJoin('a.agent', 'g')
-            ->addSelect('g')
+            ->innerJoin('agenda.agent', 'agent')
+            ->addSelect('agent')
+            ->andWhere('agent.id = :id')
 
             ->setParameter('start', $startDate)
             ->setParameter('end', $endDate)
-            ->setParameter('id', $agendaId)
-            ->orderBy('a.date', 'ASC')
+            ->setParameter('id', $agentId)
+            ->orderBy('agenda.date', 'ASC')
             ->setMaxResults(90)
             ->getQuery()
             ->getResult()
             ;
     }
-
 
 
     /*

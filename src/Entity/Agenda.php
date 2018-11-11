@@ -23,9 +23,18 @@ class Agenda
 
 
     /**
-     * @ORM\Column(type="string", length=2)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Letter")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $letter;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Agent")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $agent;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Team", inversedBy="agenda")
@@ -52,12 +61,12 @@ class Agenda
     }
 
 
-    public function getLetter(): ?string
+    public function getLetter():?Letter
     {
         return $this->letter;
     }
 
-    public function setLetter(string $letter): self
+    public function setLetter( ?Letter $letter): self
     {
         $this->letter = $letter;
 
@@ -75,4 +84,23 @@ class Agenda
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAgent()
+    {
+        return $this->agent;
+    }
+
+    /**
+     * @param mixed $agent
+     */
+    public function setAgent($agent): void
+    {
+        $this->agent = $agent;
+    }
+
+
+
 }
